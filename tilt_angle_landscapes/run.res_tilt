@@ -1,0 +1,15 @@
+#!/bin/bash
+#SBATCH --job-name=su_r3
+#SBATCH -o su_r3.o%j
+#SBATCH -N 1
+#SBATCH --ntasks-per-node=32
+#SBATCH --cluster=ub-hpc
+#SBATCH --partition=general-compute
+#SBATCH --qos=general-compute
+#SBATCH -t 08:00:00            # run time (hh:mm:ss)
+#SBATCH --mail-user=ocampbel@buffalo.edu
+#SBATCH --mail-type=END
+
+module load foss scipy-bundle mdanalysis gromacs/2021.5 seaborn/0.11.2
+
+python tilt_pep_residue.py minimization_system.gro prodrun_1us_sk5.xtc
