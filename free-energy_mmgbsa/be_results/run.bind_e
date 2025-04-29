@@ -7,7 +7,7 @@
 #SBATCH --partition=general-compute
 #SBATCH --qos=general-compute
 #SBATCH -t 01:00:00            # run time (hh:mm:ss)
-#SBATCH --mail-user=ocampbel@buffalo.edu
+#SBATCH --mail-user=[EDIT with your email]
 #SBATCH --mail-type=END
 
 # Load gmx_MMPBSA
