@@ -7,7 +7,7 @@
 #SBATCH --partition=general-compute
 #SBATCH --qos=general-compute
 #SBATCH -t 08:00:00            # run time (hh:mm:ss)
-#SBATCH --mail-user=ocampbel@buffalo.edu
+#SBATCH --mail-user=[EDIT with your email]
 #SBATCH --mail-type=END
 
 module load foss scipy-bundle mdanalysis gromacs/2021.5 seaborn/0.11.2
