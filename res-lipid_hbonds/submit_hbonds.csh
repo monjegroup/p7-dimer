@@ -7,7 +7,7 @@
 #SBATCH --cluster=faculty
 #SBATCH --partition=vmonje
 #SBATCH --qos=vmonje
-#SBATCH --mail-user=ocampbel@buffalo.edu
+#SBATCH --mail-user=[EDIT with your email]
 #SBATCH --mail-type=END
 
 module load gcc/11.2.0 openmpi/4.1.1 vmd/1.9.4a57-CUDA-11.8.0
