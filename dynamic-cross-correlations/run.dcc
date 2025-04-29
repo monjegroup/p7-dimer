@@ -10,7 +10,7 @@
 #SBATCH --mail-user=ocampbel@buffalo.edu
 #SBATCH --mail-type=END
 
-#conda activate py36
+# Load python w/ MDAnalysis
 module load foss scipy-bundle mdanalysis gromacs/2021.5 seaborn/0.11.2
 
 python calculate_DCC.py
