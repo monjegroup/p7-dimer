@@ -1,0 +1,30 @@
+# Input file for GB calculation
+
+# general selections: give unique name to system; I set mine as "prot-prot", starting and ending frames set to analyze last 500 ns 
+#                     of traj (frame 1000-2000 of 0.5ns step trajectories), temprature set at 310.15, to use forcefields for calculation involving only protein set  as "leaprc.protein.ff14SB".
+#                     Refer to https://valdes-tresanco-ms.github.io/gmx_MMPBSA/dev/input_file/#parameter-options for more ff options.
+
+#                     Interaction entropy (IE) approximated based on doi 10.1021/jacs.6b02682. Instructed program to run IE (interaction_entropy=1), and calculate
+#                     average using last 25% of analyzed trajectory (ie_segment=25).
+
+
+# gb selections: use modified GB model by A. Onufriev, D. Bashford and D.A. Case (GB-OBC2) by setting igb = 5 and PBRadii=3
+#                salt concentration (saltcon) set at 0.15M
+
+ 
+# FINAL NOTE: the "&general" section must always be included. The other section can differ based on type of calculation desired; choose from 
+#             the list featured in https://valdes-tresanco-ms.github.io/gmx_MMPBSA/dev/input_file/#namelists.
+
+&general
+sys_name="prot-prot",
+startframe=1000,
+endframe=2000,
+forcefields="leaprc.protein.ff14SB",
+PBRadii=3,
+interaction_entropy=1, ie_segment=25,
+temperature=310.15,
+/
+
+&gb
+igb=5, saltcon=0.150,
+/

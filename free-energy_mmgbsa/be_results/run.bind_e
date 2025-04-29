@@ -1,0 +1,20 @@
+#!/bin/bash
+#SBATCH --job-name=su3_be
+#SBATCH -o su3_be.o%j
+#SBATCH -N 1
+#SBATCH --ntasks-per-node=32
+#SBATCH --cluster=ub-hpc
+#SBATCH --partition=general-compute
+#SBATCH --qos=general-compute
+#SBATCH -t 01:00:00            # run time (hh:mm:ss)
+#SBATCH --mail-user=ocampbel@buffalo.edu
+#SBATCH --mail-type=END
+
+# Load gmx_MMPBSA
+module purge
+module load gcc/11.2.0 openmpi/4.1.1 python/3.9.6 amber/22.0-AmberTools-23.0 gromacs/2021.5 qt5/5.15.2
+source /user/ocampbel/venv_gmxMMPBSA/bin/activate
+
+# IMPORTANT NOTE: the input file (gb.in) runs interaction entropy (IE) analysis as well. If σIE < ~ 3.6 kcal/mol, the uncertainty to include entropy contribution is too high. In this case, report delta(TOTAL) instead.
+# refer to https://doi.org/10.1021/acs.jctc.1c00645 for more details on gmx_MMGBSA usage and interpreting calculated free energies.
+gmx_MMPBSA -O -i gb.in -cs ../prodrun.tpr -ct ../prodrun_1us_sk5.xtc -ci ../groups.ndx -cg 1 2 -cp ../topol_system.top -o bind_e_surf3.dat -eo bind_e_surf3.csv
