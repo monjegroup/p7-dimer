@@ -1,0 +1,19 @@
+# 0. Load GROMACS
+module load gcc/11.2.0 openmpi/4.1.1 gromacs/2021.5
+
+# 1. Copy TPR, XTC, TOP, GRO files and toppar/ folder to current directory, and template gb.in and run.bind_e files to a new folder called be_results/
+
+# 2. Create index file with receptor and ligand groups. In this case, the receptor is monomer 1, and the ligand is monomer 2, which are numbers 1 and 2 in the groups.ndx file
+gmx make_ndx -f prodrun.gro -o groups.ndx
+
+# 3. Convert GRO file to PDB. Select "0:System" for whole system conversion
+gmx trjconv -f prodrun.gro -s prodrun.tpr -o prodrun.pdb -pbc mol 
+
+# 4. submit GB binding energy estimation w/ interaction entropy calculation 
+# first, cd to [analysis_directory]
+cd be_results/
+# next, make necesary edits to run.bind_e to update email, requested nodes and/or job names, etc
+nano run.bind_e
+# submit calculation
+sbatch run.bind_e
+
