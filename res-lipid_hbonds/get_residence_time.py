@@ -14,18 +14,16 @@ df_n = 0
 
 for n in range(1,64):
         # load data file
-        xy1 = np.loadtxt(sys.argv[1] + "/dopc_" + str(n) + ".dat", delimiter=' ')
-        xy2 = np.loadtxt(sys.argv[1] + "/dppe_" + str(n) + ".dat", delimiter=' ')
-        xy3 = np.loadtxt(sys.argv[1] + "/popi_" + str(n) + ".dat", delimiter=' ')
-        xy4 = np.loadtxt(sys.argv[1] + "/dops_" + str(n) + ".dat", delimiter=' ')
+        xy1 = np.loadtxt("dopc_" + str(n) + ".dat", delimiter=' ')
+        xy2 = np.loadtxt("dppe_" + str(n) + ".dat", delimiter=' ')
+        xy3 = np.loadtxt("popi_" + str(n) + ".dat", delimiter=' ')
+        xy4 = np.loadtxt("dops_" + str(n) + ".dat", delimiter=' ')
 
         # sum up total lipid contacts (for last 500 ns; note there is 0.5ns saving frequency in data files)
         cont1 = xy1[-1000:,1]
         cont2 = xy2[-1000:,1]
         cont3 = xy3[-1000:,1]
         cont4 = xy4[-1000:,1]
-
-#        print("length of data: " + str(len(cont1)))
 
         a = 0
         b = 0
