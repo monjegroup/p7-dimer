@@ -1,5 +1,5 @@
-**Description:** This repository contains files used to perform analysis of dynamics and interactions involved in the formation of hepatitis C dimers in the presence of a lipid membrane. 
+**Description:** This repository contains files used to perform analysis of dynamics and interactions involved in the formation of p7 dimers in the presence of a lipid membrane; this viral protein from Hepatitic C is known to interfer with lipid metabolism & storage. 
 
-Most of the resulting files are raw data files, which can then be used for statistical analysis and to make plots for reporting. A few have statistical analysis/plotting already factored into the scripts. Please consider these files as templates - first read through to understand what each command does, then edit to fit your individual needs.
+Analysis output produces raw time series to be further processed for statistical analysis and comparative plots. These files may be used as templates, please read the comments carefuly and edit according to your system(s) needs.
 
-**Resulting publication:**  Campbell, O., Dahhan, D., & Monje, V. (2025). Role of Lipids in Mediating Protein-Protein Interactions during Dimer Assembly. In preparation.
+**Associated publication:**  Campbell, O., Dahhan, D., & Monje, V. (2025). Lipid-driven alignment and binding of p7 dimers in early oligomer assembly. (submitted; bioRxiv/2025/659606)
